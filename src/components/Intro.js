@@ -7,7 +7,6 @@ import {
   Image,
   Platform,
 } from 'react-native';
-import CameraPermissionManager from '../bridges/permissionManager/PermissionManager';
 
 const { width, height } = Dimensions.get('window');
 
@@ -18,7 +17,6 @@ const IntroView = ({ onSplashComplete }) => {
     const reqPermissions = async () => {
 
       const permissionManagers = [
-        new CameraPermissionManager(),
       ];
 
       for (const manager of permissionManagers) {
