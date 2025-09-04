@@ -1,4 +1,6 @@
 {
   "name": "RNTemplate",
-  "displayName": "RNTemplate"
+  "displayName": "RNTemplate",
+  "startUrl": "http://127.0.0.1:5500",
+  "userAgent": "_template"
 }
