@@ -8,6 +8,8 @@ import {
   Platform,
 } from 'react-native';
 
+import CameraPermissionManager from '../permissions/CameraPermissionManager'
+
 const { width, height } = Dimensions.get('window');
 
 const IntroView = ({ onSplashComplete }) => {
@@ -15,13 +17,19 @@ const IntroView = ({ onSplashComplete }) => {
 
   useEffect(() => {
     const reqPermissions = async () => {
+      console.log('reqPermissions - START');
 
       const permissionManagers = [
+        new CameraPermissionManager()
       ];
 
+      console.log('Starting permission managers...');
       for (const manager of permissionManagers) {
-        await manager.start();
+        console.log('Starting manager:', manager.constructor.name);
+        const result = await manager.start();
+        console.log('Manager result:', result);
       }
+      console.log('All permissions done');
       isDone.current = true;
     }
     
